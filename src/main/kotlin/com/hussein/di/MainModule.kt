@@ -11,14 +11,13 @@ import org.litote.kmongo.reactivestreams.KMongo
 val mainModule = module {
     single {
         KMongo.createClient()
-            .coroutine.getDatabase("message_db_yt")
+            .coroutine
+            .getDatabase("message_db_yt")
     }
     single<MessageDataSource> {
         MessageDataSourceImpl(get())
     }
-
     single {
         RoomController(get())
     }
-
 }

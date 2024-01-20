@@ -47,7 +47,7 @@ fun Route.chatSocket(roomController: RoomController){
             e.printStackTrace()
         }
         finally {
-            roomController.disconnect(username = session.username)
+            roomController.tryDisconnect(username = session.username)
         }
 
     }
